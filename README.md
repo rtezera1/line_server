@@ -1,17 +1,17 @@
 Instructions
   First, install all the required dependencies 
-  ``sh
+  ```sh
     bundle
-  ``
+  ```
   Now, you're able to select a file to serve and start the server
     ex:
-    ``sh
+    ```sh
       ./run.sh ~/Desktop/live_server/article.txt
-    ``
+    ```
   To request a specific line:
-    ``sh
+    ```sh
     curl http://localhost:9393/lines/10
-    ``
+    ```
   And that should give you the HTTP status and the requested line
 
   The way it works is that when the server starts, it takes the file requested from the arguement provided. When a request comes in, the server takes the line requested. The file is converted into an object to be converted into a hash format, where the line number is the key and the phrase is the value. If the file can't be found or the number requested is not within the number of lines in the file, it throws an excpetion. Otherwise, it uses the hash to match the value (phrase) that corresponds with the requesed number. Once found, it returns the http status and the line. 
